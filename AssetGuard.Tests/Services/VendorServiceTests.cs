@@ -1,0 +1,32 @@
+using System.Threading.Tasks;
+using Xunit;
+using Moq;
+using AssetGuard.Services.Services;
+using AssetGuard.Core.Interfaces;
+using AssetGuard.Core.Entities;
+
+namespace AssetGuard.Tests.Services
+{
+    public class VendorServiceTests
+    {
+        private readonly Mock<IUnitOfWork> _mockUow;
+        private readonly VendorService _service;
+
+        public VendorServiceTests()
+        {
+            _mockUow = new Mock<IUnitOfWork>();
+            _service = new VendorService(_mockUow.Object);
+        }
+
+        [Fact]
+        public async Task AddVendor_CallsRepository()
+        {
+            var repoMock = new Mock<IRepository<Vendor>>();
+            _mockUow.Setup(u => u.Repository<Vendor>()).Returns(repoMock.Object);
+
+            await _service.AddVendorAsync("V1", "Contact");
+
+            repoMock.Verify(r => r.AddAsync(It.IsAny<Vendor>()), Times.Once);
+        }
+    }
+}
