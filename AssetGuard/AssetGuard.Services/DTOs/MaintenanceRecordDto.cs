@@ -1,0 +1,15 @@
+using System;
+
+namespace AssetGuard.Services.DTOs
+{
+    public class MaintenanceRecordDto
+    {
+        public int Id { get; set; }
+        public int AssetId { get; set; }
+        public string AssetName { get; set; }
+        public DateTime MaintenanceDate { get; set; }
+        public string Description { get; set; }
+        public decimal Cost { get; set; }
+        public string ServiceProvider { get; set; }
+    }
+}
