@@ -1,2 +1,16 @@
 using Xunit;
-namespace AssetGuard.Tests.Services.Reporting { public class ReportScheduleTests { [Fact] public void Test1() { Assert.True(true); } } }
+using AssetGuard.Core.Entities;
+
+namespace AssetGuard.Tests.Services.Reporting 
+{ 
+    public class ReportScheduleTests 
+    { 
+        [Fact] 
+        public void Entity_SetsCron() 
+        { 
+            var sch = new ReportSchedule { CronExpression = "* * * * *" };
+            Assert.Equal("* * * * *", sch.CronExpression);
+            Assert.True(sch.IsEnabled);
+        } 
+    } 
+}

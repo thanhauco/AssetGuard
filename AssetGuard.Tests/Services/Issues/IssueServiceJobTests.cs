@@ -1,2 +1,19 @@
+using System.Threading.Tasks;
 using Xunit;
-namespace AssetGuard.Tests.Services.Issues { public class IssueServiceJobTests { [Fact] public void Test() { } } }
+using Moq;
+using AssetGuard.Services.Services;
+using AssetGuard.Core.Entities;
+using AssetGuard.Core.Interfaces;
+
+namespace AssetGuard.Tests.Services.Issues 
+{ 
+    public class IssueServiceJobTests 
+    { 
+        [Fact] 
+        public void Test() 
+        { 
+             // Placeholder enrichment
+            Assert.True(true);
+        } 
+    } 
+}
