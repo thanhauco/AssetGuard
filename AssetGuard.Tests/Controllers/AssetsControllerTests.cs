@@ -5,25 +5,35 @@ using AssetGuard.Api.Controllers;
 using AssetGuard.Services.Interfaces;
 using AssetGuard.Services.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
-namespace AssetGuard.Tests.Controllers
-{
-    public class AssetsControllerTests
-    {
-        private readonly Mock<IAssetService> _mockService;
+namespace AssetGuard.Tests.Controllers 
+{ 
+    public class AssetsControllerTests 
+    { 
+        private readonly Mock<IAssetService> _mock;
         private readonly AssetsController _controller;
 
         public AssetsControllerTests()
         {
-            _mockService = new Mock<IAssetService>();
-            _controller = new AssetsController(_mockService.Object);
+            _mock = new Mock<IAssetService>();
+            _controller = new AssetsController(_mock.Object);
+        }
+
+        [Fact] 
+        public async Task GetAll_ReturnsList() 
+        { 
+            _mock.Setup(s => s.GetAllAssetsAsync()).ReturnsAsync(new List<AssetDto>());
+            var result = await _controller.GetAll();
+            Assert.IsType<OkObjectResult>(result);
         }
 
         [Fact]
-        public async Task Get_ReturnsOkResult()
+        public async Task GetById_ReturnsOk()
         {
-            var result = await _controller.Get(1);
-            Assert.IsType<OkObjectResult>(result.Result); // Assuming service returns null and not found check is what we test, or modify mock to return obj
+            _mock.Setup(s => s.GetAssetByIdAsync(1)).ReturnsAsync(new AssetDto());
+            var result = await _controller.GetById(1);
+            Assert.IsType<OkObjectResult>(result);
         }
-    }
+    } 
 }

@@ -1,15 +1,15 @@
 using Xunit;
 using AssetGuard.Core.Exceptions;
 
-namespace AssetGuard.Tests.Infrastructure
-{
-    public class BadRequestExceptionTests
-    {
-        [Fact]
-        public void BadRequestException_Message_Works()
-        {
-            var ex = new BadRequestException("Test");
-            Assert.Equal("Test", ex.Message);
-        }
-    }
+namespace AssetGuard.Tests.Infrastructure 
+{ 
+    public class BadRequestExceptionTests 
+    { 
+        [Fact] 
+        public void Exception_StoresMessage() 
+        { 
+            var ex = new BadRequestException("Bad");
+            Assert.Equal("Bad", ex.Message);
+        } 
+    } 
 }
