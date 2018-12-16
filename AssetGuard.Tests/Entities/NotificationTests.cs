@@ -1,15 +1,16 @@
 using Xunit;
 using AssetGuard.Core.Entities;
 
-namespace AssetGuard.Tests.Entities
-{
-    public class NotificationTests
-    {
-        [Fact]
-        public void Notification_Properties_Work()
-        {
-            var entity = new Notification { Subject = "Test" };
-            Assert.Equal("Test", entity.Subject);
-        }
-    }
+namespace AssetGuard.Tests.Entities 
+{ 
+    public class NotificationTests 
+    { 
+        [Fact] 
+        public void Entity_InitialState_Unread() 
+        { 
+            var notif = new Notification { Subject = "Alert" };
+            Assert.False(notif.IsRead);
+            Assert.Null(notif.ReadAt);
+        } 
+    } 
 }

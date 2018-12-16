@@ -1,15 +1,15 @@
 using Xunit;
 using AssetGuard.Services.DTOs;
 
-namespace AssetGuard.Tests.DTOs
-{
-    public class ComponentDtoTests
-    {
-        [Fact]
-        public void ComponentDto_Properties_Work()
-        {
-            var dto = new ComponentDto { Name = "Test" };
-            Assert.Equal("Test", dto.Name);
-        }
-    }
+namespace AssetGuard.Tests.DTOs 
+{ 
+    public class ComponentDtoTests 
+    { 
+        [Fact] 
+        public void Dto_Properties() 
+        { 
+            var dto = new ComponentDto { Name = "RAM", SerialNumber = "SN1" };
+            Assert.Equal("RAM", dto.Name);
+        } 
+    } 
 }

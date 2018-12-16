@@ -1,15 +1,15 @@
 using Xunit;
 using AssetGuard.Core.Entities;
 
-namespace AssetGuard.Tests.Entities
-{
-    public class ApplicationUserTests
-    {
-        [Fact]
-        public void ApplicationUser_Properties_Work()
-        {
-            var entity = new ApplicationUser { UserName = "Test" };
-            Assert.Equal("Test", entity.UserName);
-        }
-    }
+namespace AssetGuard.Tests.Entities 
+{ 
+    public class ApplicationUserTests 
+    { 
+        [Fact] 
+        public void Entity_SetsUsername() 
+        { 
+            var u = new ApplicationUser { UserName = "admin" };
+            Assert.Equal("admin", u.UserName);
+        } 
+    } 
 }

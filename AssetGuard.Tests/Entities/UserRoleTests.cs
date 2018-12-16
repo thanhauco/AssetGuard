@@ -1,15 +1,15 @@
 using Xunit;
 using AssetGuard.Core.Entities;
 
-namespace AssetGuard.Tests.Entities
-{
-    public class UserRoleTests
-    {
-        [Fact]
-        public void UserRole_Properties_Work()
-        {
-            var entity = new UserRole { UserId = 1 };
-            Assert.Equal(1, entity.UserId);
-        }
-    }
+namespace AssetGuard.Tests.Entities 
+{ 
+    public class UserRoleTests 
+    { 
+        [Fact] 
+        public void Entity_SetsIds() 
+        { 
+            var ur = new UserRole { UserId = 1, RoleId = 2 };
+            Assert.Equal(1, ur.UserId);
+        } 
+    } 
 }

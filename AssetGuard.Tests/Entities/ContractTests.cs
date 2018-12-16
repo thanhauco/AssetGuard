@@ -1,15 +1,15 @@
 using Xunit;
 using AssetGuard.Core.Entities;
 
-namespace AssetGuard.Tests.Entities
-{
-    public class ContractTests
-    {
-        [Fact]
-        public void Contract_Properties_Work()
-        {
-            var entity = new Contract { Title = "Test" };
-            Assert.Equal("Test", entity.Title);
-        }
-    }
+namespace AssetGuard.Tests.Entities 
+{ 
+    public class ContractTests 
+    { 
+        [Fact] 
+        public void Entity_SetsTitle() 
+        { 
+            var c = new Contract { Title = "C1", VendorId = 1 };
+            Assert.Equal("C1", c.Title);
+        } 
+    } 
 }
